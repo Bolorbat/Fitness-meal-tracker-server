@@ -1,4 +1,8 @@
 import axios from "axios";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const TOKEN_URL = "https://oauth.fatsecret.com/connect/token";
 const API_URL = "https://platform.fatsecret.com/rest/server.api";
 let cachedToken = null;
