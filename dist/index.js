@@ -13,6 +13,7 @@ app.get("/search-food", async (req, res) => {
     const data = await searchFood(query);
     res.json(data);
   } catch (err) {
+    console.error(err.response?.data || err.message);
     res.status(500).json({ error: err.message });
   }
 });
