@@ -34,6 +34,7 @@ export async function searchFood(query, maxResults, pageNumber) {
         max_results: maxResults,
         page_number: pageNumber,
         include_sub_categories: true,
+        include_food_images: true,
         format: "json",
       },
       headers: { Authorization: `Bearer ${token}` },
@@ -43,5 +44,5 @@ export async function searchFood(query, maxResults, pageNumber) {
   } catch (err) {
     console.error("Fatsecret API error: ", err?.response?.data || err.message);
     throw new Error("Request failed with status code " + err.response?.status);
-  };
-};
+  }
+}
