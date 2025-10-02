@@ -12,7 +12,7 @@ async function getAccessToken() {
   if (cachedToken && now < tokenExpiry) return cachedToken;
   const response = await axios.post(
     TOKEN_URL,
-    new URLSearchParams({ grant_type: "client_credentials", scope: "basic" }),
+    new URLSearchParams({ grant_type: "client_credentials", scope: "premier" }),
     {
       auth: {
         username: process.env.FATSECRET_CLIENT_ID,
