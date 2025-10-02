@@ -25,7 +25,7 @@ async function getAccessToken() {
   tokenExpiry = now + response.data.expires_in * 1000 - 60000;
   return cachedToken;
 }
-export async function searchFood(query) {
+export async function searchFood(query, maxResults) {
   try {
     const token = await getAccessToken();
     console.log("Using token:", token);
@@ -33,6 +33,7 @@ export async function searchFood(query) {
       params: {
         method: "foods.search",
         search_expression: query,
+        max_results: maxResults,
         format: "json",
       },
       headers: { Authorization: `Bearer ${token}` },
@@ -42,5 +43,5 @@ export async function searchFood(query) {
   } catch (err) {
     console.error("Fatsecret API error: ", err?.response?.data || err.message);
     throw new Error("Request failed with status code " + err.response?.status);
-  }
-}
+  };
+};

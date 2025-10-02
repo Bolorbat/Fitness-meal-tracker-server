@@ -13,9 +13,10 @@ app.get("/test", (req, res) => {
 app.get("/search-food", async (req, res) => {
   try {
     const query = req.query.q;
+    const max_results = req.query.maxResults;
     console.log("Calling FatSecret API with query:", query);
     if (!query) return res.status(400).json({ error: "Missing query ?q=" });
-    const data = await searchFood(query);
+    const data = await searchFood(query, max_results);
     res.json(data);
   } catch (err) {
     console.error('FatSecret error:', err.response?.data || err.message);
