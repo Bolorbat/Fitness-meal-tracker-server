@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const TOKEN_URL = "https://oauth.fatsecret.com/connect/token";
-const API_URL = "https://platform.fatsecret.com/rest/server.api";
+const API_URL = "https://platform.fatsecret.com/rest/foods/search/v3";
 let cachedToken = null;
 let tokenExpiry = 0;
 async function getAccessToken() {
@@ -25,15 +25,15 @@ async function getAccessToken() {
   tokenExpiry = now + response.data.expires_in * 1000 - 60000;
   return cachedToken;
 }
-export async function searchFood(query, maxResults) {
+export async function searchFood(query, maxResults, pageNumber) {
   try {
     const token = await getAccessToken();
-    console.log("Using token:", token);
     const response = await axios.get(API_URL, {
       params: {
-        method: "foods.search",
         search_expression: query,
         max_results: maxResults,
+        pageu_number: pageNumber,
+        include_sub_categories: true,
         format: "json",
       },
       headers: { Authorization: `Bearer ${token}` },
