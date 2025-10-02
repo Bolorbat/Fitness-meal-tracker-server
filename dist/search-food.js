@@ -32,7 +32,7 @@ export async function searchFood(query, maxResults, pageNumber) {
       params: {
         search_expression: query,
         max_results: maxResults,
-        pageu_number: pageNumber,
+        page_number: pageNumber,
         include_sub_categories: true,
         format: "json",
       },
