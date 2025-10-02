@@ -15,8 +15,8 @@ async function getAccessToken(): Promise<string> {
     new URLSearchParams({ grant_type: "client_credentials", scope: "basic" }),
     {
       auth: {
-        username: process.env.EXPO_PUBLIC_FATSECRET_CLIENT_ID!,
-        password: process.env.EXPO_PUBLIC_FATSECRET_CLIENT_SECRET!,
+        username: process.env.FATSECRET_CLIENT_ID!,
+        password: process.env.FATSECRET_CLIENT_SECRET!,
       },
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     }
