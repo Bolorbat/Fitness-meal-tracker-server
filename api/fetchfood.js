@@ -2,7 +2,7 @@ import axios from "axios";
 import { response } from "express";
 
 const TOKEN_URL = "https://oauth.fatsecret.com/connect/token";
-const API_URL = "https://platform.fatsecret.com/rest/server.api";
+const API_URL = "https://platform.fatsecret.com/rest/food/v5?";
 
 let cachedToken = null;
 let tokenExpiry = 0;
@@ -23,7 +23,9 @@ async function getAccesToken() {
     }
   );
   cachedToken = response.data.access_token;
-  tokenExpiry = date + response.data.expiress_in * 6000 - 10000;
+  tokenExpiry = date + response.data.expires_in * 6000 - 10000;
+
+  return cachedToken;
 }
 
 export async function searchFood(query, maxResults, pageNumber) {
