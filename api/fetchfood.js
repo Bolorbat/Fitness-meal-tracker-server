@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const TOKEN_URL = "https://oauth.fatsecret.com/connect/token";
-const API_URL = "https://platform.fatsecret.com/rest/food/v5?";
+const API_URL = "https://platform.fatsecret.com/rest/foods/search/v4";
 
 let cachedToken = null;
 let tokenExpiry = 0;
