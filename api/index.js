@@ -12,7 +12,7 @@ app.get("/search-food", async (req, res) => {
   try {
     const query = req.params.query;
     const maxResults = req.params.maxResults;
-    const pageNumber = req.accepted.pageNumber;
+    const pageNumber = req.params.pageNumber;
     if (!query) return res.status(400).json({ error: "query is missing ?q=" });
     const data = await searchFood(query, maxResults, pageNumber);
     res.json(data);
