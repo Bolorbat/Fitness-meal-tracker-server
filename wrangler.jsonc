@@ -1,7 +1,5 @@
 {
   "name": "fitness-meal-tracker-server",
-  "compatibility_date": "2025-10-29",
-  "assets": {
-    "directory": "./dist"
-  }
+  "compatibility_date": "2025-11-01",
+  "main": "api/index.js"
 }
