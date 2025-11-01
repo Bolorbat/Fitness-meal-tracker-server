@@ -13,9 +13,9 @@ app.get("/", (req, res) => res.send("backend is running"));
 
 app.get("/search-food", async (req, res) => {
   try {
-    const {q : query, maxResults, pageNumber} = req.query;
+    const {q : query, maxResults} = req.query;
     if (!query) return res.status(400).json({ error: "query is missing ?q=" });
-    const data = await searchFood(query, maxResults, pageNumber);
+    const data = await searchFood(query, maxResults);
     res.json(data);
   } catch (err) {
     console.error("FatSecret error:", err.response?.data || err.message);
