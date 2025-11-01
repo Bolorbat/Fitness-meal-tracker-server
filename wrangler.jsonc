@@ -1,5 +1,6 @@
 {
   "name": "fitness-meal-tracker-server",
   "compatibility_date": "2025-11-01",
-  "main": "api/index.js"
+  "main": "api/index.js",
+  "compatibility_flags" : ["nodejs.compat"]
 }
