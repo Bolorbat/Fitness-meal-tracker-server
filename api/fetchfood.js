@@ -31,7 +31,7 @@ export async function searchFood(query, maxResults = 10) {
   try {
     const token = await getAccesToken();
     const response = await axios.get(API_URL, {
-      params: { search_expression: query, max_results : maxResults, format : json},
+      params: { search_expression: query, max_results : maxResults, format : 'json'},
       headers: { Authorization: `Bearer ${token}` },
     });
     console.log("food api : ", response.data);
